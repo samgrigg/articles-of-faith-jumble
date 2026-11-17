@@ -45,7 +45,7 @@ Browser tests use the production build, so run `npm run build` first. They cover
 
 ## Content configuration
 
-Edit `src/articles.json`. Each entry has `id`, full formatted `text`, and an ordered `chunks` array. Chunks must contain lowercase ASCII letters only; their concatenation must equal the source text with punctuation, spaces, and capitalization removed. Startup and unit tests validate this. Chunk boundaries are fixed in the file, never generated during play. Current divisions are provisional.
+Edit `src/articles.json`. Each entry has `id`, full formatted `text`, and an ordered `chunks` array. Chunks must contain at least two lowercase ASCII letters each; their concatenation must equal the source text with punctuation, spaces, and capitalization removed. Startup and unit tests validate this. Chunk boundaries are fixed in the file, never generated during play. Current divisions are provisional.
 
 Source text: [Articles of Faith, Church scripture edition](https://www.churchofjesuschrist.org/study/scriptures/pgp/a-of-f/1?lang=eng). The historical text was written in 1842.
 
