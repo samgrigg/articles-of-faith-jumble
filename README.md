@@ -51,7 +51,7 @@ Source text: [Articles of Faith, Church scripture edition](https://www.churchofj
 
 ## Controls and offline use
 
-Drag a tile so its gold end approaches the matching end of its neighbor, then release. Tiles can briefly extend past the mat edge while dragging, allowing connections to wide groups. Joined tiles wrap and settle inside the mat. Drag near the top or bottom edge to scroll long mats; swipe the empty background to scroll normally.
+Drag a tile so its gold end approaches the matching end of its neighbor, then release. Tiles can briefly extend past the mat edge while dragging, allowing connections to wide groups. Joined tiles wrap at a maximum of two-thirds of the viewport width and settle inside the mat. Drag near the top or bottom edge to scroll long mats; swipe the empty background to scroll normally.
 
 Keyboard: focus a tile, use arrow keys to move it, then Enter or Space to attempt a join.
 

@@ -51,8 +51,12 @@ test("drag joins, complete, persist, and replay", async ({ page }) => {
     for (let i = 0; i < Math.round(Math.abs(dy) / 12); i++)
       await target.press(dy > 0 ? "ArrowDown" : "ArrowUp");
     await target.press("Enter");
-    if (next < total - 1)
+    if (next < total - 1) {
       await expect(prefix).toHaveAttribute("data-end", String(next));
+      const bounds = await prefix.boundingBox();
+      expect(bounds!.width).toBeLessThanOrEqual((390 * 2) / 3 + 1);
+      if (next >= 6) expect(bounds!.height).toBeGreaterThan(70);
+    }
   }
   await expect(page.getByText("Beautifully pieced together.")).toBeVisible();
   await page.getByRole("button", { name: "Replay article" }).click();

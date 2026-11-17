@@ -242,7 +242,7 @@ footer {
   white-space: normal;
 }
 .tile.joined {
-  max-width: calc(100% - 24px);
+  max-width: min(calc(100% - 24px), calc(100vw * 2 / 3));
   background: #fafff4;
   border-color: #b7c5a7;
 }
