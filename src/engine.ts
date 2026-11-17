@@ -18,7 +18,7 @@ export const letters = (text: string) =>
 export function validate(article: Article) {
   if (
     !article.chunks.length ||
-    article.chunks.some((c) => !/^[a-z]{2,}$/.test(c)) ||
+    article.chunks.some((c) => !/^[a-z]{3,}$/.test(c)) ||
     article.chunks.join("") !== letters(article.text)
   )
     throw new Error(`Invalid chunks for Article ${article.id}`);

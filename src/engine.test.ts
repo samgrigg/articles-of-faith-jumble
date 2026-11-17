@@ -55,11 +55,14 @@ it("removes punctuation without inventing word boundaries", () => {
   };
   expect(textFor(article, { start: 0, end: 2 })).toBe("adams faithwe believe");
 });
-it("rejects a single-letter tile even when all source letters match", () => {
+it("rejects tiles shorter than three letters even when source letters match", () => {
   expect(() =>
     validate({ id: 1, text: "We believe", chunks: ["webeliev", "e"] }),
   ).toThrow();
   expect(() =>
     validate({ id: 1, text: "We believe", chunks: ["we", "believe"] }),
+  ).toThrow();
+  expect(() =>
+    validate({ id: 1, text: "We believe", chunks: ["web", "elieve"] }),
   ).not.toThrow();
 });
