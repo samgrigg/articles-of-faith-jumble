@@ -59,6 +59,10 @@ test("drag joins, complete, persist, and replay", async ({ page }) => {
     }
   }
   await expect(page.getByText("Beautifully pieced together.")).toBeVisible();
+  await page.screenshot({
+    path: "test-results/article-victory.png",
+    fullPage: true,
+  });
   await page.getByRole("button", { name: "Replay article" }).click();
   await expect(page.locator(".tile")).toHaveCount(total);
   await page.getByRole("button", { name: "Return to articles" }).click();
@@ -77,6 +81,21 @@ test("cached game opens and plays offline", async ({ page, context }) => {
   await page.waitForFunction(() => !!navigator.serviceWorker.controller);
   await context.setOffline(true);
   await page.reload();
+  await expect
+    .poll(() =>
+      page
+        .locator(".hero-art")
+        .evaluate(
+          (img: HTMLImageElement) => img.complete && img.naturalWidth > 0,
+        ),
+    )
+    .toBe(true);
+  expect(
+    await page.evaluate(async () => {
+      await document.fonts.load("800 18px Nunito");
+      return document.fonts.check("800 18px Nunito");
+    }),
+  ).toBe(true);
   await page.getByRole("button", { name: /Article 13 / }).click();
   await expect(page.locator(".tile").first()).toBeVisible();
   await expect(page.locator(".tile")).not.toHaveCount(0);

@@ -192,7 +192,7 @@ export default function App() {
       ),
       next,
     ]);
-    setAnnouncement("Tiles joined.");
+    setAnnouncement("You found a match!");
     if (group.start === 0 && group.end === article.chunks.length - 1) {
       setWon(true);
       setAnnouncement("Article complete!");
@@ -225,17 +225,24 @@ export default function App() {
               <span className="brand-sub">LITTLE GAMES. GOOD COMPANY.</span>
             </span>
           </header>
-          <div className="eyebrow">A LITTLE ORDER FROM A LITTLE CHAOS</div>
+          <div className="eyebrow">A LITTLE PUZZLE. A BIG DISCOVERY.</div>
           <h1>
             Articles of Faith<span>Jumble</span>
           </h1>
           <p className="intro">
-            Scattered letters. Familiar words.
+            Find a match. Build a phrase.
             <br />
-            Bring the pieces together.
+            See what you can piece together!
           </p>
+          <img
+            className="hero-art"
+            src="/puzzle-friends.jpg"
+            alt=""
+            width="1000"
+            height="512"
+          />
           <div className="collection-head">
-            <h2>Choose an article</h2>
+            <h2>Choose your puzzle</h2>
             <span>{completed.length} / 13 complete</span>
           </div>
           <div className="article-list">
@@ -246,9 +253,7 @@ export default function App() {
                 onClick={() => start(a)}
                 aria-label={`Article ${a.id} ${completed.includes(a.id) ? "Completed" : "Play"}`}
               >
-                <span className="article-number">
-                  {String(a.id).padStart(2, "0")}
-                </span>
+                <span className="article-number">{a.id}</span>
                 <span className="article-label">
                   Article {a.id}
                   <small>
@@ -265,18 +270,16 @@ export default function App() {
               </button>
             ))}
           </div>
-          <footer>TAKE YOUR TIME. FIND THE CONNECTIONS.</footer>
+          <footer>One piece at a time. You’ve got this!</footer>
         </main>
       ) : won ? (
         <main className="victory">
           <div className="seal" aria-hidden="true">
-            ✧
+            ★
           </div>
           <div className="eyebrow">ARTICLE {article.id} · COMPLETE</div>
-          <h1>
-            Beautifully <br />
-            pieced together.
-          </h1>
+          <h1>You did it!</h1>
+          <p className="victory-note">Beautifully pieced together.</p>
           <blockquote>{article.text}</blockquote>
           <button className="primary" onClick={() => start(article)}>
             Replay article
@@ -319,7 +322,7 @@ export default function App() {
             <div style={{ width: `${progress}%` }} />
           </div>
           <p className="mat-instruction">
-            Bring matching ends together. Let the words unfold.
+            Drag matching ends together. Watch them snap!
           </p>
           <div className="mat" ref={mat}>
             <div
@@ -429,7 +432,7 @@ export default function App() {
             </div>
           </div>
           <footer className="game-footer">
-            <span aria-hidden="true">✧</span> EVERY CONNECTION COUNTS{" "}
+            <span aria-hidden="true">✧</span> LITTLE PIECES. BIG DISCOVERIES.{" "}
             <span aria-hidden="true">✧</span>
           </footer>
         </div>

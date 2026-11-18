@@ -60,3 +60,7 @@ The first online load caches the app and all articles. Subsequent visits work of
 ## Deployment
 
 Build and serve `dist/` from an HTTPS static host. This project currently assumes deployment at the domain root. No backend, account, or API keys are required.
+
+## Visual assets
+
+The children’s activity-page design uses locally bundled Nunito fonts (OFL) and original generated artwork. The artwork prompt and production notes are in `docs/artwork/puzzle-friends.md`. Illustration and WOFF2 fonts are precached for offline play.
